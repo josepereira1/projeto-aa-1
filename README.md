@@ -1,5 +1,5 @@
 # projeto-aa-1
-Primeiro projeto de Arquiteturas Aplicacionais
+Trabalhos realizados ao longo do semestre em Arquiteturas Aplicacionais
 
 # Grupo:
  - José Pereira (josepereira1)
