@@ -33,6 +33,11 @@ public class TextEditor {
         TextBoxSnapshot snapshot = savedTextBoxes.pop();
         snapshot.restore();
     }
+    
+    public void save() {
+        TextBoxSnapshot snapshot = textBox.save(); // creates snapshot
+        savedTextBoxes.push(snapshot); // saves it
+    }
 
     @Override
     public String toString() {
