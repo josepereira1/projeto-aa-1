@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class TextEditor {
 
-    private Stack<TextBoxSnapshot> savedTextBoxes; // stack holding snapshots
+    private Stack<Memento> savedTextBoxes; // stack holding snapshots
     private TextBox textBox; // current text box
     private boolean autoSave; // if true automatically saves text box before making changes
 
@@ -13,10 +13,7 @@ public class TextEditor {
     }
 
     public void appendText(String text) {
-        if (autoSave) { // creates a snapshot before making changes
-            TextBoxSnapshot snapshot = textBox.save(); // creates snapshot
-            savedTextBoxes.push(snapshot); // saves it
-        }
+        if (autoSave) save(); // creates a snapshot before making changes
         textBox.appendText(text);
     }
 
@@ -28,15 +25,15 @@ public class TextEditor {
         System.out.println(">> " + textBox.getText());
     }
 
+    public void save() {
+        Memento snapshot = textBox.save(); // creates snapshot
+        savedTextBoxes.push(snapshot); // saves it
+    }
+
     public void undo() {
         System.out.println("undo clicked...");
-        TextBoxSnapshot snapshot = savedTextBoxes.pop();
+        Memento snapshot = savedTextBoxes.pop();
         snapshot.restore();
-    }
-    
-    public void save() {
-        TextBoxSnapshot snapshot = textBox.save(); // creates snapshot
-        savedTextBoxes.push(snapshot); // saves it
     }
 
     @Override

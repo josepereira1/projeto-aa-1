@@ -1,4 +1,4 @@
-public class TextBox {
+public class TextBox implements Originator {
 
     private StringBuilder currentText;
 
@@ -11,7 +11,7 @@ public class TextBox {
     }
 
     public void setText(String text) {
-        this.currentText.setLength(0); // more efficient than create a new instance
+        this.currentText.setLength(0); // more efficient than creating a new instance
         this.currentText.append(text);
     }
 
@@ -19,7 +19,7 @@ public class TextBox {
         return currentText.toString();
     }
 
-    public TextBoxSnapshot save() {
+    public Memento save() {
         return new TextBoxSnapshot(this, currentText.toString());
     }
 

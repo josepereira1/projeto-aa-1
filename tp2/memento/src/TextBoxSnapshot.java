@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class TextBoxSnapshot {
+public class TextBoxSnapshot implements Memento {
 
     private TextBox originator;
 
@@ -16,7 +16,7 @@ public class TextBoxSnapshot {
         savedAt = LocalDateTime.now();
     }
 
-    public LocalDateTime getDate() {
+    public LocalDateTime getDateTime() {
         return savedAt;
     }
 
