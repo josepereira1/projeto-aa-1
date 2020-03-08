@@ -22,4 +22,8 @@ public class ConcreteObserver implements Observer{
     }
 
     // other methods
+
+    public int getState(){
+        return this.state;
+    }
 }
