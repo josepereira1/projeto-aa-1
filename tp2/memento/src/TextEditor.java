@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class TextEditor implements Caretaker {
+public class TextEditor {
 
     private Stack<Memento> savedTextBoxes; // stack holding snapshots
     private TextBox textBox; // current text box
