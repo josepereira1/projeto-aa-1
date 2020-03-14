@@ -16,5 +16,10 @@ public class Main {
 		injector = new SMSServiceInjector();
 		consumer = injector.getConsumer();
 		consumer.processMessage(msg);
+
+		//Send Facebook
+		injector = new FacebookServiceInjector();
+		consumer = injector.getConsumer();
+		consumer.processMessage(msg);
 	}
 }
